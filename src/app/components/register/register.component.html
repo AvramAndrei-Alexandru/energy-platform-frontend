@@ -1,0 +1,79 @@
+<h2 class="example mt-2 mb-4">Register</h2>
+<div class="example">
+  <div *ngIf="shouldDisplayError" class="alert alert-danger form-input">{{errorList}}</div>
+</div>
+<div class="example">
+  <form class="k-form" [formGroup]="form">
+    <fieldset class="k-form-fieldset">
+      <kendo-formfield>
+        <kendo-label class="mb-2" [for]="username" text="Username"></kendo-label>
+        <kendo-textbox
+          formControlName="username"
+          [clearButton]="true"
+          #username
+          required
+        ></kendo-textbox>
+
+        <kendo-formerror>Error: Username is required</kendo-formerror>
+      </kendo-formfield>
+      <kendo-formfield>
+        <kendo-label class="mb-2" [for]="password" text="Password"> </kendo-label>
+        <kendo-textbox
+          formControlName="password"
+          #password
+          required
+          [clearButton]="true"
+        >
+          <ng-template kendoTextBoxSuffixTemplate>
+            <button
+              kendoButton
+              look="clear"
+              icon="eye"
+              (click)="toggleVisibility()"
+            ></button>
+          </ng-template>
+        </kendo-textbox>
+
+        <kendo-formerror>Error: Password is required</kendo-formerror>
+      </kendo-formfield>
+
+      <kendo-formfield>
+        <kendo-label class="mb-2" [for]="address" text="Address"></kendo-label>
+        <kendo-textbox
+          formControlName="address"
+          [clearButton]="true"
+          #address
+          required
+        ></kendo-textbox>
+
+        <kendo-formerror>Error: Address is required</kendo-formerror>
+      </kendo-formfield>
+
+      <kendo-formfield>
+        <kendo-label class="mb-2" [for]="birthdate" text="Birthdate"></kendo-label>
+        <kendo-datepicker
+          #birthdate
+          formControlName="birthdate"
+          [min]="min"
+          [max]="max"
+          required
+        ></kendo-datepicker>
+
+        <kendo-formerror>Error: Birthdate is required</kendo-formerror>
+      </kendo-formfield>
+
+      <kendo-formfield>
+        <kendo-label [for]="role" text="Role"></kendo-label>
+        <kendo-dropdownlist #role formControlName="role" [data]="roles" required>
+        </kendo-dropdownlist>
+        <kendo-formerror>Error: User role is required</kendo-formerror>
+      </kendo-formfield>
+
+      <div class="k-form-buttons button-area">
+        <button class="k-button k-primary" (click)="registerUser()" >Register user</button>
+        <button class="k-button k-primary" (click)="clearForm()">Clear</button>
+        <button class="k-button k-primary" (click)="onCancel()">Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+</div> 

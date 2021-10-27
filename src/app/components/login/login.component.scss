@@ -1,0 +1,40 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body{
+    padding: 20px;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+
+.text-success{
+    color: green;
+}
+
+.logout:hover{
+    cursor: pointer;
+}
+
+ul li{
+    text-decoration: none;
+    list-style: none;
+    font-size: 25px;
+}
+
+.form-input{
+    width: 18%;
+}
+
+.form-layout{
+    justify-content: center;
+}
+
+.example {
+    display: flex;
+    justify-content: center;
+}
+.k-form {
+    width: 340px;
+    height: 400px;
+}

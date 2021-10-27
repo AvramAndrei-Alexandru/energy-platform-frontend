@@ -1,0 +1,75 @@
+body{
+    padding: 20px;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+
+.text-success{
+    color: green;
+}
+
+.logout:hover{
+    cursor: pointer;
+}
+
+ul li{
+    text-decoration: none;
+    list-style: none;
+    font-size: 25px;
+}
+
+.form-input{
+    width: 18%;
+}
+
+.form-layout{
+    justify-content: center;
+}
+
+.example {
+    display: flex;
+    justify-content: center;
+}
+.k-form {
+    width: 340px;
+    height: 400px;
+}
+
+.button-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-measurement-section {
+    float: left;
+    margin-top: 23px !important;
+    margin-left: 23px !important;
+}
+
+.date-selection-area {
+    display: flex;
+    flex-direction: column;
+    .date-label {
+        margin-top: 24px;
+        margin-left: 24px;
+    }
+
+    .date-picker-custom {
+        margin-left: 24px;
+    }
+}
+
+.chart-area {
+    margin-top: 30px;
+    margin-left: 30px
+}
+
+.custom-chart-container {
+    height: 10%;
+}
+
+.custom-height {
+    height: 165px;
+}

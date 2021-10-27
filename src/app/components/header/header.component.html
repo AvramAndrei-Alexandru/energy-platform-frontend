@@ -1,0 +1,15 @@
+<div class="row header-content">
+    <h2>Welcome {{loggedUser}}</h2>
+    <div>
+        <button kendoButton  class="btn btn-lg btn-primary btn-block" (click)="onLogOut()">Log out</button>
+        <button kendoButton  class="btn btn-lg btn-primary btn-block" (click)="onBack()">Back</button>
+        <button *ngIf="shouldDisplayAddUserButton" kendoButton  class="btn btn-lg btn-primary btn-block" (click)="onAddUser()">Add user</button>
+        <button *ngIf="shouldDisplayAddDeviceButton" kendoButton  class="btn btn-lg btn-primary btn-block" (click)="onAddDeviceClick()">Add device</button>
+    </div>
+</div>
+<div class="page-name">
+    <h3 *ngIf="userNameForDevices">{{pageName}} - {{userNameForDevices}}</h3>
+    <h3 *ngIf="!userNameForDevices && !deviceName">{{pageName}}</h3>
+    <h3 *ngIf="deviceName">{{pageName}} - {{deviceName}}</h3>
+</div>
+ 

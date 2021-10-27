@@ -1,0 +1,79 @@
+
+@import "~bootstrap/dist/css/bootstrap.css";
+::ng-deep.users-grid {
+    .k-grid-header {
+      display: block !important;
+      color: rgb(112, 112, 177);
+      padding: 0 !important;
+    }
+  
+    &.k-grid {
+      thead {
+        th,
+        td {
+          background: #dde6e9;
+          font-style: bold;
+          font-size: medium;
+        }
+  
+        tr:first-child {
+          th:first-child {
+            border-left-width: 5px;
+            border-color: transparent;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+  
+          th:last-child {
+            border-right-width: 5px;
+            border-color: transparent;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          td {
+            border-width: 1px !important;
+            border-color: rgb(255, 255, 255) !important;
+            border-bottom-color: rgb(226, 223, 223) !important;
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            font-weight: 600;
+            color: grey;
+            background-color: white;
+          }
+        }
+      }
+  
+      .k-detail-row,
+      .k-detail-row:hover {
+        background: white;
+      }
+    }
+  
+    th.k-header {
+      border: none;
+    }
+  
+    &.k-grid tbody tr:hover,
+    .k-grid tbody tr.k-state-hover {
+      background-color: transparent;
+    }
+  }
+
+  .button-section {
+    display: flex;
+    flex-direction: row-reverse;
+    button {
+      margin-left: 10px;
+    }
+  }

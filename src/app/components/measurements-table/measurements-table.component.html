@@ -1,0 +1,42 @@
+<div>
+    <app-header></app-header>
+</div>
+<div class="row">
+  <div *ngIf="shouldDisplayAddMeasurementSection" class="add-measurement-section">
+    <div class="example">
+        <form class="k-form custom-height" [formGroup]="form">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label class="mb-2" [for]="measurement" text="Measurement value"></kendo-label>
+              <kendo-numerictextbox #measurement required [min]="0" [autoCorrect]="true" formControlName="measurement"></kendo-numerictextbox>
+              <kendo-formerror>Error: Measurement is required</kendo-formerror>
+            </kendo-formfield>
+            <kendo-formfield>
+                <kendo-label class="mb-2" [for]="dateTime" text="Date and time"></kendo-label>
+                <kendo-datetimepicker #dateTime [format]="format" formControlName="date"></kendo-datetimepicker>
+                <kendo-formerror>Error: Date and time is required</kendo-formerror>
+              </kendo-formfield>
+              <div class="k-form-buttons button-area">
+                <button class="k-button k-primary" (click)="onAddMeasurement()" >Add measurement</button>
+                <button class="k-button k-primary" (click)="clearForm()">Clear</button>
+              </div>
+          </fieldset>
+        </form>
+      </div> 
+  </div>
+  <div class="date-selection-area">
+    <kendo-label class="mb-2 date-label" [for]="selectedDateTime" text="Select the day you want to view the measurements"></kendo-label>
+    <kendo-datepicker class="date-picker-custom" #selectedDateTime (valueChange)="onDateSelectedChange($event)" [format]="selectedDateFormat" [(value)]="selectedDate"></kendo-datepicker>
+  </div>
+</div>
+<div class="chart-container custom-chart-container" *ngIf="sensorMeasurements">
+  <canvas baseChart 
+        [datasets]="lineChartData" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        [plugins]="lineChartPlugins">
+    </canvas>
+</div>
