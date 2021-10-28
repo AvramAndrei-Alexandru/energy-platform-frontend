@@ -14,6 +14,7 @@ export class UsersTableComponent implements OnInit {
 
   public users: DashboardUserModel[];
   public UserRoles: UserRoles;
+  public loggedUserName: string = "";
 
   constructor(
     private _userService: UserService,
@@ -22,6 +23,10 @@ export class UsersTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+    let loggedUserName = localStorage.getItem("userName");
+    if (loggedUserName !== null) {
+      this.loggedUserName = loggedUserName;
+    }
   }
 
   private loadData(): void {
@@ -51,5 +56,14 @@ export class UsersTableComponent implements OnInit {
 
   public onViewDevices(user: DashboardUserModel): void {
     this._router.navigate([RoutingConstants.DEVICES, {id: user.id, name: user.userName}]);
+  }
+
+  public shouldDisableDelete(dataItem: DashboardUserModel): boolean {
+    if (dataItem.userName !== null) {
+      if (dataItem.userName.toUpperCase() === this.loggedUserName.toUpperCase()) {
+        return true;
+      }
+    }
+    return false;
   }
 }
