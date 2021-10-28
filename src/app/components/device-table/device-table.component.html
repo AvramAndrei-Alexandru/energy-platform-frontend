@@ -31,9 +31,9 @@
         <kendo-grid-column title="">
             <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                 <div class="button-section">
-                    <button *ngIf="isUserAdmin" class="k-button k-primary ml-3" (click)="onDelete(dataItem)">Delete</button>
+                    <button [disabled]="!dataItem.id" *ngIf="isUserAdmin" class="k-button k-primary ml-3" (click)="onDelete(dataItem)">Delete</button>
                     <button *ngIf="isUserAdmin" class="k-button k-primary" (click)="onSaveClick(dataItem)">Update</button>
-                    <button class="k-button k-primary" (click)="onViewMeasurements(dataItem)">View measurements</button>
+                    <button [disabled]="!dataItem.id" class="k-button k-primary" (click)="onViewMeasurements(dataItem)">View measurements</button>
                 </div>
             </ng-template>
         </kendo-grid-column>
