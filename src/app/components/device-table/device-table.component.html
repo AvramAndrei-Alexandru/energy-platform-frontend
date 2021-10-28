@@ -21,14 +21,14 @@
                 <p *ngIf="!isUserAdmin">{{dataItem.address}}</p>
             </ng-template>
         </kendo-grid-column>
-        <kendo-grid-column title="Maximum energy consumption" editor="numeric">
+        <kendo-grid-column title="Maximum consumption" editor="numeric">
             <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                 <kendo-numerictextbox *ngIf="isUserAdmin" [min]="0" [autoCorrect]="true" [(value)]="dataItem.maximumEnergyConsumption"></kendo-numerictextbox >
                 <p *ngIf="!isUserAdmin">{{dataItem.maximumEnergyConsumption}}</p>
             </ng-template>
         </kendo-grid-column>
-        <kendo-grid-column field="averageEnergyConsumption" title="Average device consumption"></kendo-grid-column>
-        <kendo-grid-column field="totalEnergyConsumption" title="Total device consumption"></kendo-grid-column>
+        <kendo-grid-column field="averageEnergyConsumption" title="Average consumption" width="200"></kendo-grid-column>
+        <kendo-grid-column field="totalEnergyConsumption" title="Total consumption" width="200"></kendo-grid-column>
         <kendo-grid-column title="">
             <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                 <div class="button-section">
