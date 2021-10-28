@@ -7,4 +7,5 @@ export class SmartDeviceDashboardModel {
     maximumEnergyConsumption: number;
     averageEnergyConsumption: number;
     userId: string;
+    totalEnergyConsumption: number;
 }
