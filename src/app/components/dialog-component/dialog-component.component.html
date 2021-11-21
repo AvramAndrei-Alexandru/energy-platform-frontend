@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Power peak detected for device {{data.deviceName}}</h1>
+<div mat-dialog-content>
+  <p>A power peak occured at {{data.timeStamp | date: 'short'}} with a value of {{data.powerPeak | number: '.2'}}</p>
+</div>
+<div class="button-section">
+  <button kendoButton  class="btn btn-lg btn-primary btn-block" [mat-dialog-close]="false">Close</button>
+</div>

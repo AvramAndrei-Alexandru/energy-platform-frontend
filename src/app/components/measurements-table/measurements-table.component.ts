@@ -1,11 +1,13 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ChartDataSets } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { Subscription } from 'rxjs';
 import { GetMeasurementModel, SensorMeasurementDashboardModel } from 'src/app/models/sensor-measurement-models';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { MessagingService } from 'src/app/services/messaging.service';
 import { SensorMeasurementService } from 'src/app/services/sensor-measurement.service';
 
 @Component({
@@ -13,7 +15,7 @@ import { SensorMeasurementService } from 'src/app/services/sensor-measurement.se
   templateUrl: './measurements-table.component.html',
   styleUrls: ['./measurements-table.component.scss']
 })
-export class MeasurementsTableComponent implements OnInit {
+export class MeasurementsTableComponent implements OnInit, OnDestroy {
 
 
   //Chart data
@@ -43,6 +45,7 @@ export class MeasurementsTableComponent implements OnInit {
 
 
   private deviceId: string;
+  private subscription: Subscription;
   public shouldDisplayAddMeasurementSection: boolean = false;
   public form: FormGroup = new FormGroup({
     measurement: new FormControl(),
@@ -57,8 +60,14 @@ export class MeasurementsTableComponent implements OnInit {
     private _activatedroute: ActivatedRoute,
     private _authService: AuthService,
     private _sensorMeasurementService: SensorMeasurementService,
-    private _datePipe: DatePipe
+    private _datePipe: DatePipe,
+    private _messagingService: MessagingService
   ) { }
+
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.deviceId = this._activatedroute.snapshot.paramMap.get("id");
@@ -66,6 +75,9 @@ export class MeasurementsTableComponent implements OnInit {
       this.shouldDisplayAddMeasurementSection = true;
     }
     this.onDateSelectedChange(this.selectedDate)
+    this.subscription = this._messagingService.onMessageRecive.subscribe(_ => {
+      this.onDateSelectedChange(this.selectedDate);
+    })
   }
 
   public onAddMeasurement(): void {

@@ -24,6 +24,8 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { MeasurementsTableComponent } from './components/measurements-table/measurements-table.component';
 import { ChartsModule } from 'ng2-charts';
 import { DatePipe } from '@angular/common';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponentComponent } from './components/dialog-component/dialog-component.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -37,7 +39,8 @@ export function tokenGetter() {
     LoginComponent,
     HeaderComponent,
     RegisterComponent,
-    MeasurementsTableComponent
+    MeasurementsTableComponent,
+    DialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ export function tokenGetter() {
     LayoutModule,
     LabelModule,
     DropDownsModule,
+    MatDialogModule,
     ChartsModule,
     JwtModule.forRoot({
       config: {
