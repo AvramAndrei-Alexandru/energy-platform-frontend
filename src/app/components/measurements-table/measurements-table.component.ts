@@ -68,7 +68,7 @@ export class MeasurementsTableComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
-
+ 
   ngOnInit(): void {
     this.deviceId = this._activatedroute.snapshot.paramMap.get("id");
     if (this._authService.isUserAdmin()) {
