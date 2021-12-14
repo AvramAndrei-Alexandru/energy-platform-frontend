@@ -12,11 +12,11 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private _messagingService: MessagingService) { }
 
   public ngOnDestroy(): void {
-    this._messagingService.stop();
+    //this._messagingService.stop();
   }
 
   public ngOnInit(): void {
-    this._messagingService.start();
+    //this._messagingService.start();
   }
   
 

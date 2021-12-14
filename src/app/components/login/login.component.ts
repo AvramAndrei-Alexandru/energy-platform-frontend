@@ -3,6 +3,7 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TextBoxComponent } from '@progress/kendo-angular-inputs';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { MessagingService } from 'src/app/services/messaging.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   public invalidLogin: boolean = false;
 
   constructor(
-    private _router: Router, private _authService: AuthService
+    private _router: Router, private _authService: AuthService, private _messagingService: MessagingService
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
     this._authService.login(credentials).subscribe(response => {
       const token = (<any>response).token;
       localStorage.setItem("jwt", token);
+      this._messagingService.start()
       localStorage.setItem("userName", this.form.value.username);
       this.invalidLogin = false;
       if(this._authService.isUserAdmin()) {

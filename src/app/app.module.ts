@@ -26,6 +26,7 @@ import { ChartsModule } from 'ng2-charts';
 import { DatePipe } from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponentComponent } from './components/dialog-component/dialog-component.component';
+import { RPCPageComponent } from './components/rpcpage/rpcpage.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -40,7 +41,8 @@ export function tokenGetter() {
     HeaderComponent,
     RegisterComponent,
     MeasurementsTableComponent,
-    DialogComponentComponent
+    DialogComponentComponent,
+    RPCPageComponent
   ],
   imports: [
     BrowserModule,

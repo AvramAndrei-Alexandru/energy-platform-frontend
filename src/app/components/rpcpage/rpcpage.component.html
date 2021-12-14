@@ -1,0 +1,49 @@
+<div>
+    <app-header></app-header>
+</div>
+<div class="historic-table-container">
+    <div class="number-of-days-container">
+        <h4>Historic data over the past {{numberOfDaysInPast}} days</h4>
+        <kendo-numerictextbox (valueChange)="onDaysValueChange($event)" [decimals]="0" [format]="'n0'" [min]="1" [autoCorrect]="true" [(value)]="numberOfDaysInPast"></kendo-numerictextbox >
+    </div>
+    <div class="custom-chart-container" *ngIf="sensorMeasurements">
+        <canvas baseChart 
+              [datasets]="lineChartData" 
+              [labels]="lineChartLabels" 
+              [options]="lineChartOptions"
+              [colors]="lineChartColors" 
+              [legend]="lineChartLegend" 
+              [chartType]="lineChartType" 
+              [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+      <h4>Client baseline over the last week</h4>
+      <div class="custom-chart-container" *ngIf="sensorMeasurementsBaseline">
+        <canvas baseChart 
+              [datasets]="lineChartDataBaseline" 
+              [labels]="lineChartLabelsBaseline" 
+              [options]="lineChartOptions"
+              [colors]="lineChartColors" 
+              [legend]="lineChartLegend" 
+              [chartType]="lineChartType" 
+              [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+      <h4>Select program duration (in hours)</h4>
+      <kendo-numerictextbox class="custom-margin-left" [decimals]="0" [format]="'n0'" (valueChange)="onDurationValueChange($event)"[min]="1" [max]="24" [autoCorrect]="true" [(value)]="programDuration"></kendo-numerictextbox >
+      <div class="time-section">
+        <h4>Time to start next day: {{timeToStart}}</h4>
+        <h4>Time to end next day: {{timeToEnd}}</h4>
+      </div>
+      <div class="custom-chart-container" *ngIf="sensorMeasurementsTimeToStart">
+        <canvas baseChart 
+              [datasets]="lineChartDataTimeToStart" 
+              [labels]="lineChartLabelsTimeToStart" 
+              [options]="lineChartOptions"
+              [colors]="lineChartColors" 
+              [legend]="lineChartLegend" 
+              [chartType]="lineChartType" 
+              [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+</div>

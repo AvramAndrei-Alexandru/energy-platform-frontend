@@ -8,5 +8,6 @@ export enum RoutingConstants {
     USERS = "users",
     REGISTER = "register",
     DEVICES = "devices",
-    MEASUREMENTS = "measurements"
+    MEASUREMENTS = "measurements",
+    RPC = "rpc"
 }

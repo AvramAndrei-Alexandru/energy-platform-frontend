@@ -4,6 +4,7 @@ import { DeviceTableComponent } from './components/device-table/device-table.com
 import { LoginComponent } from './components/login/login.component';
 import { MeasurementsTableComponent } from './components/measurements-table/measurements-table.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RPCPageComponent } from './components/rpcpage/rpcpage.component';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { RoutingConstants } from './utils/routes';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'users', component: UsersTableComponent, canActivate: [AuthGuardService] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuardService] },
   { path: RoutingConstants.DEVICES, component: DeviceTableComponent, canActivate: [AuthGuardService] },
-  { path: 'measurements', component: MeasurementsTableComponent, canActivate: [AuthGuardService]},
+  { path: 'measurements', component: MeasurementsTableComponent, canActivate: [AuthGuardService] },
+  { path: 'rpc', component: RPCPageComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({

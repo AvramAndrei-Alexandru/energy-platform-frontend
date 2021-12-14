@@ -53,7 +53,10 @@ export class HeaderComponent implements OnInit {
       this.pageName = "DEVICES"
     } else if (this._router.url.split(';')[0] == '/' + RoutingConstants.MEASUREMENTS) {
       this.pageName = "MEASUREMENTS"
+    } else if (this._router.url.split(';')[0] == '/' + RoutingConstants.RPC) {
+      this.pageName = "Statistics"
     }
+    
 	}
 	
 	private setUpVariables(): void {

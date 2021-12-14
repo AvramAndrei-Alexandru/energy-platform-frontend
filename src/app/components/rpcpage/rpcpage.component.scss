@@ -1,0 +1,36 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.historic-table-container {
+ h4 {
+     margin-left: 10px;
+     margin-top: 10px;
+ }
+}
+
+.custom-chart-container {
+    height: 750px;
+    width: 98%;
+}
+
+.custom-canvas {
+    height: 47%;
+    width: 98%;
+}
+
+.number-of-days-container {
+    display: flex;
+    flex-direction: column;
+
+    kendo-numerictextbox {
+        margin-left: 100px;
+    }
+}
+
+.custom-margin-left {
+    margin-left: 10px;
+}
+
+.time-section {
+    margin-left: 10px;
+    margin-top: 10px;
+}

@@ -45,6 +45,10 @@ export class DeviceTableComponent implements OnInit {
     this._router.navigate([RoutingConstants.MEASUREMENTS, { id: device.id, deviceName: device.description }]);
   }
 
+  public onViewRPCMeasurements(device: SmartDeviceDashboardModel): void {
+    this._router.navigate([RoutingConstants.RPC, { id: device.id, deviceName: device.description }]);
+  }
+
   public onDelete(device: SmartDeviceDashboardModel): void {
     this._smartDeviceService.deleteDevice(device.id).subscribe(_ => {
       this.loadData();

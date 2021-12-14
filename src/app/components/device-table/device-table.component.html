@@ -29,12 +29,13 @@
         </kendo-grid-column>
         <kendo-grid-column field="averageEnergyConsumption" title="Average consumption" width="200"></kendo-grid-column>
         <kendo-grid-column field="totalEnergyConsumption" title="Total consumption" width="200"></kendo-grid-column>
-        <kendo-grid-column title="">
+        <kendo-grid-column title="" width="450">
             <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                 <div class="button-section">
                     <button [disabled]="!dataItem.id" *ngIf="isUserAdmin" class="k-button k-primary ml-3" (click)="onDelete(dataItem)">Delete</button>
                     <button *ngIf="isUserAdmin" class="k-button k-primary" (click)="onSaveClick(dataItem)">Update</button>
                     <button [disabled]="!dataItem.id" class="k-button k-primary" (click)="onViewMeasurements(dataItem)">View measurements</button>
+                    <button [disabled]="!dataItem.id" class="k-button k-primary" (click)="onViewRPCMeasurements(dataItem)">View statistics</button>
                 </div>
             </ng-template>
         </kendo-grid-column>
